@@ -1,0 +1,62 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container{
+    min-width: 450px;
+    min-height: 300px;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+
+button{
+    font-size: 1.2rem;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.add{
+    background-color: green;
+}
+.add:hover{
+    background-color: rgba(0, 128, 0, 0.8);
+}
+
+.sub{
+    background-color: red;
+}
+.sub:hover{
+    background-color: rgba(255, 0, 0, 0.8);
+}
+
+.reset{
+    background-color: blue;
+}
+.reset:hover{
+    background-color: rgba(0, 0, 255, 0.8);
+}
+
+.sort{
+    background-color: blueviolet;
+}
+.sort:hover{
+    background-color: rgb(138, 43, 226, 0.8);
+}
