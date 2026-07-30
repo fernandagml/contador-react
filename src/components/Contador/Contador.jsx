@@ -1,14 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from './Contador.module.css';
 
 export default function Contador(){
     const [contador, setContador] = useState(0);
+    const [contadorAuto, setAuto] = useState(false);
 
     const atualizarContadorSoma = () => { return setContador(contador + 1) };
     const atualizarContadorSub = () => { return setContador(contador - 1) };
-    const atualizarContadorResete = () => { return setContador(0) };
+    const atualizarContadorResete = () => { return setContador(0); setAuto(false) };
     const atualizarContadorSorteio = () => { return setContador(Math.floor(Math.random() * 10) + 1)};
+    const atualizarContadorAuto = () => { return setAuto(!contadorAuto) };
 
+    setInterval(() => setAuto), 1000
+    useEffect(() => {
+        let relogio;
+
+        if (contadorAuto) {
+            relogio = setInterval(() => {
+                setContador((valorAtual) => valorAtual + 1)
+            }, 1000);
+        }
+
+        return () => {clearInterval(relogio)}
+    }, [contadorAuto])
+    
     const contadorFormat = contador.toString().padStart(2, '0');
 
     return (
@@ -20,6 +35,7 @@ export default function Contador(){
                 <button className={styles.add} onClick={atualizarContadorSoma}>Somar +</button>
                 <button className={styles.sub} onClick={atualizarContadorSub}>Subtrair -</button>
                 <button className={styles.sort} onClick={atualizarContadorSorteio}>Sortear</button>
+                <button className={styles.aut} onClick={atualizarContadorAuto}>{contadorAuto ? 'Parar' : 'Contar Automaticamente'}</button>
             </div>
         </div>
         </>
