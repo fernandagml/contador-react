@@ -13,6 +13,8 @@ export default function UseEffectHook(){
 
     useEffect(() => {console.log('Ocorre quando renderizar o Contador.');}, [contador]);
 
+    useEffect(() => {document.title = titulo + contador}, [contador]);
+
     return(
         <button className={styles.aut} onClick={() => setContador(contador + 1)}>{contador}</button>
     );
