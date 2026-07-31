@@ -12,7 +12,7 @@ export default function Tema() {
 
     useEffect(() => {console.log('O contador foi alterado para:', contador);}, [contador]);
 
-    useEffect(() => {console.log('Tema alterado para:', temaEscuro ? 'Claro' : 'Escuro')}, [temaEscuro]);
+    useEffect(() => {console.log('Tema alterado para:', temaEscuro ? 'Escuro' : 'Claro')}, [temaEscuro]);
 
     function aumentarContador() {
         setContador(contador + 1)
@@ -43,12 +43,12 @@ export default function Tema() {
                 </section>
                 <section className={styles.card}>
                     <h2>2. Campo de Texto (useState)</h2>
-                    <input type="text" className={styles.input} placeholder="Digite seu nome" />
-                    <p>Olá, </p>
+                    <input type="text" className={styles.input} placeholder="Digite seu nome" value={nome} onChange={(e) => setNome(e.target.value)} />
+                    <p>Olá, <strong>{nome || "visitante"}</strong>!</p>
                 </section>
                 <section className={styles.card}>
                     <h2>3. Alternância de Tema (useState)</h2>
-                    <button className={styles.botaoTema}>Alterar o tema para </button>
+                    <button className={styles.botaoTema} onClick={alterarTema}>Alterar o tema para {temaEscuro ? "Claro" : "Escuro"}</button>
                     <p>O useEffect observa a variável <strong>temaEscuro</strong> e executa sempre que o tema é alterado.</p>
                 </section>
             </main>
