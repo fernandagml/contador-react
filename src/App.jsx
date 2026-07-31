@@ -1,10 +1,10 @@
-import Contador from './components/Contador/Contador';
+import Tema from './components/Tema/Tema';
 import './App.css';
 
 export default function App() {
   return (
     <>
-    <Contador />
+    <Tema />
     </>
   );
 };
